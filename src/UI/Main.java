@@ -40,15 +40,16 @@ public class Main {
         }
 
         // GETTER/SETTER
+        vehicleType = myCar.getVehicleType();
         int rate = myCar.getRate();
 
         PlateNumber plateInfo = new PlateNumber(ownerName, plateNum);
 
-        // TIME INPUT (HH:MM)
-        System.out.print("Enter the time you parked (HH:MM, 24-hr, e.g. 12:00): ");
+        // TIME INPUT 
+        System.out.print("Enter the time you parked (24-hr, e.g. 12:00): ");
         String timeIn = input.nextLine();
 
-        System.out.print("Enter the time you left (HH:MM, 24-hr, e.g. 14:30): ");
+        System.out.print("Enter the time you left (24-hr, e.g. 14:30): ");
         String timeOut = input.nextLine();
 
         int minutes = toMinutes(timeOut) - toMinutes(timeIn);
