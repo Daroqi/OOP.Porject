@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class RecordSystem {
     private static final String FILE_NAME = "parking_records.txt";
 
-    // CREATE: makes the file if it doesn't exist yet
     public static void createFile() {
         File file = new File(FILE_NAME);
         try {
@@ -19,11 +18,10 @@ public class RecordSystem {
         }
     }
 
-    // WRITE: adds one record to the end of the file
     public static void saveRecord(String owner, String plate, String brand,
-                                  String vehicleType, int hours, int total) {
+    String vehicleType, int hours, int total) {
         createFile();
-        try (FileWriter writer = new FileWriter(FILE_NAME, true)) { // true = append
+        try (FileWriter writer = new FileWriter(FILE_NAME, true)) { 
             writer.write(owner + "|" + plate + "|" + brand + "|"
                     + vehicleType + "|" + hours + "|" + total + "\n");
         } catch (IOException e) {
@@ -31,7 +29,6 @@ public class RecordSystem {
         }
     }
 
-    // READ: prints every saved record and the total earnings
     public static void showRecords() {
         File file = new File(FILE_NAME);
         if (!file.exists()) {
@@ -61,7 +58,6 @@ public class RecordSystem {
         System.out.println("Total earnings: " + earnings);
     }
 
-    // DELETE: removes the whole record file
     public static void deleteRecords() {
         File file = new File(FILE_NAME);
         if (file.delete()) {
